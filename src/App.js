@@ -1,20 +1,19 @@
-import { Settings } from '@mui/icons-material';
-import { Button } from '@mui/material';
-import { SampleButton } from './SampleButton';
+import { Sidebar } from './components/Sidebar';
+import { Feed } from './components/Feed';
+import { Rightbar } from './components/Rightbar';
+import { Navbar } from './components/Navbar';
+import { Box, Stack } from '@mui/material';
 
 function App() {
   return (
-    <div>
-      <Button>버튼</Button>
-      <Button variant='contained'>버튼2</Button>
-      <Button variant='contained' color='secondary'>
-        버튼3
-      </Button>
-      <Button variant='contained' startIcon={<Settings />}>
-        버튼4
-      </Button>
-      <SampleButton>버튼5</SampleButton>
-    </div>
+    <Box>
+      <Navbar />
+      <Stack direction='row' spacing={2} justifyContent='space-between'>
+        <Sidebar />
+        <Feed />
+        <Rightbar />
+      </Stack>
+    </Box>
   );
 }
 
