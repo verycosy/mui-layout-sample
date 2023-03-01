@@ -5,10 +5,13 @@ import {
   Badge,
   Box,
   InputBase,
+  Menu,
+  MenuItem,
   styled,
   Toolbar,
   Typography,
 } from '@mui/material';
+import { useState } from 'react';
 
 const StyledToobar = styled(Toolbar)({
   display: 'flex',
@@ -41,6 +44,8 @@ const UserBox = styled(Box)(({ theme }) => ({
 }));
 
 export const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <AppBar position='sticky'>
       <StyledToobar>
@@ -65,10 +70,11 @@ export const Navbar = () => {
           <Avatar
             sx={{ width: 30, height: 30 }}
             src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Streifenhoernchen.jpg/250px-Streifenhoernchen.jpg'
+            onClick={() => setOpen(true)}
           />
         </Icons>
 
-        <UserBox>
+        <UserBox onClick={() => setOpen(true)}>
           <Avatar
             sx={{ width: 30, height: 30 }}
             src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Streifenhoernchen.jpg/250px-Streifenhoernchen.jpg'
@@ -76,6 +82,23 @@ export const Navbar = () => {
           <Typography component='span'>John</Typography>
         </UserBox>
       </StyledToobar>
+
+      <Menu
+        open={open}
+        onClose={() => setOpen(false)}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+      >
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>My Account</MenuItem>
+        <MenuItem>Logout</MenuItem>
+      </Menu>
     </AppBar>
   );
 };
