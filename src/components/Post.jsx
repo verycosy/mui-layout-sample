@@ -13,7 +13,7 @@ import {
 
 export const Post = () => {
   return (
-    <Card sx={{ margin: 5 }}>
+    <Card sx={{ marginBottom: 4 }}>
       <CardHeader
         avatar={<Avatar sx={{ bgcolor: 'red' }}>R</Avatar>}
         action={

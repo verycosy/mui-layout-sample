@@ -27,9 +27,20 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box bgcolor={'background.default'} color={'text.primary'}>
+      <Box
+        bgcolor={'background.default'}
+        color={'text.primary'}
+        sx={{ margin: 0, padding: 0 }}
+      >
         <Navbar />
-        <Stack direction='row' spacing={2} justifyContent='space-between'>
+        <Stack
+          direction='row'
+          spacing={{
+            sx: 0,
+            md: 2,
+          }}
+          justifyContent='space-between'
+        >
           <Sidebar mode={mode} setMode={setMode} />
           <Feed />
           <Rightbar />
